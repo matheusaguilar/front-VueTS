@@ -29,6 +29,7 @@ export default class MyClass extends Vue {
     console.log(Teste);
     const x = new Teste();
     x.teste();
+    console.log('kasdkas ksakdksa ksa ');
   }
 
   teste() {

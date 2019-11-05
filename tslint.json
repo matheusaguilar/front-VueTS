@@ -6,7 +6,8 @@
     "jsRules": {},
     "rules": {
         "import-name": false,
-        "trailing-comma": false
+        "trailing-comma": false,
+        "semicolon": false
     },
     "rulesDirectory": []
 }
