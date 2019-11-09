@@ -37,15 +37,15 @@ module.exports = (env, argv) => {
     output: {
       path: path.resolve(__dirname, 'dist/bundle'),
       filename: '[name]_bundle.js',
-      publicPath: '/'
-      // devtoolModuleFilenameTemplate: info => { work on this to change debug file names
-      //   var $filename = 'sources://' + info.resourcePath;
-      //   if (info.resourcePath.match(/\.vue$/) && !info.allLoaders.match(/type=script/)) {
-      //     $filename = 'webpack-generated:///' + info.resourcePath + '?' + info.hash;
-      //   } 
-      //   return $filename;
-      // },    
-      // devtoolFallbackModuleFilenameTemplate: 'webpack:///[resource-path]?[hash]'
+      publicPath: '/',
+      devtoolModuleFilenameTemplate: info => {
+        var $filename = 'sources://' + info.resourcePath;
+        if (info.resourcePath.match(/\.vue$/) &&
+          (!info.query.match(/type=script/) || !info.query.match(/lang=ts/))) {
+          $filename = 'webpack-generated:///' + info.resourcePath + '?' + info.hash;
+        } 
+        return $filename;
+      }
     },
     resolve: {
       extensions: ['.tsx', '.ts', '.js', '.vue', '.json'],
