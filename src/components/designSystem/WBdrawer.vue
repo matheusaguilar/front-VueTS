@@ -2,28 +2,23 @@
   <aside :class="'mdc-drawer mdc-drawer--dismissible ' + paddingTop" id="wbMDCDrawer">
     <div class="mdc-drawer__content">
       <slot></slot>
-
-      <div class="mdc-list">
-        <a class="mdc-list-item mdc-list-item--activated" href="#" aria-current="page">
-          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i>
-          <span class="mdc-list-item__text">Inbox</span>
-        </a>
-        <a class="mdc-list-item" href="#">
-          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
-          <span class="mdc-list-item__text">Outgoing</span>
-        </a>
-        <a class="mdc-list-item" href="#">
-          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
-          <span class="mdc-list-item__text">Drafts</span>
-        </a>
-      </div>
     </div>
   </aside>
 </template>
 
 <script>
+import { Builder } from "_PagesSrc/ts/designSystem/Builder";
+
 export default {
   props: ['topappbar'],
+  data: function(){
+    return {
+      element: null
+    }
+  },
+  mounted(){
+    this.element = Builder.getInstance().init('WBdrawer');
+  },
   computed: {
     paddingTop: function(){
       return this.topappbar == 'dense'? 'padding-dense' : 'padding-standard';
@@ -58,5 +53,21 @@ body {
 
 .padding-dense{
   padding-top: 48px;
+}
+
+#wbMDCTopAppBarMenuBtn{
+  display: none;
+}
+
+@media screen and (max-width: 1024px){
+  #wbMDCTopAppBarMenuBtn{
+    display: block;
+  }
+}
+
+@media screen and (min-width: 1024px){
+  #wbMDCDrawer {
+    display: none;
+  }
 }
 </style>
