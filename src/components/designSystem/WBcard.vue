@@ -3,7 +3,7 @@
     <!--Basic-->
     <div class="mdc-card mdc-basic-card" v-if="variant == 'basic'">
       <div class="mdc-card__primary-action">
-        <div class="mdc-card__media mdc-card__media--16-9 mdc-card-bgimg"></div>
+        <div class="mdc-card__media mdc-card__media--16-9 mdc-card-bgimg" :style="{ backgroundImage: 'url(' + img + ')' }"></div>
         <div class="mdc-card__primary" v-if="title || subtitle">
           <h2
             class="mdc-card__title mdc-typography mdc-typography--headline6"
@@ -30,7 +30,7 @@
     <!--Text Over Media-->
     <div class="mdc-card mdc-basic-overmedia" v-if="variant == 'basic-overmedia'">
       <div class="mdc-card__primary-action">
-        <div class="mdc-card__media mdc-card__media--16-9 mdc-card-bgimg">
+        <div class="mdc-card__media mdc-card__media--16-9 mdc-card-bgimg" :style="{ backgroundImage: 'url(' + img + ')' }">
           <div class="mdc-card__media-content mdc-overmedia-card__media-content">
             <div class="mdc-card__primary mdc-overmedia-card__primary">
               <h2
@@ -66,7 +66,7 @@
         >{{subtitle}}</h3>
       </div>
       <div class="mdc-card__primary-action">
-        <div class="mdc-card__media mdc-card__media--16-9 mdc-card-bgimg"></div>
+        <div class="mdc-card__media mdc-card__media--16-9 mdc-card-bgimg" :style="{ backgroundImage: 'url(' + img + ')' }"></div>
         <div
           class="mdc-card__secondary mdc-header-card__secondary mdc-typography mdc-typography--body2"
           v-if="description"
@@ -82,7 +82,7 @@
     <!--ImageText-->
     <div class="mdc-card mdc-image-text" v-if="variant == 'image-text'">
       <div class="mdc-card__primary-action">
-        <div class="mdc-card__media mdc-card__media--square mdc-card-bgimg"></div>
+        <div class="mdc-card__media mdc-card__media--square mdc-card-bgimg" :style="{ backgroundImage: 'url(' + img + ')' }"></div>
         <div class="mdc-card__primary">
           <h2
             class="mdc-card__title mdc-typography mdc-typography--headline6"
@@ -110,6 +110,7 @@ export default {
   props: {
     id: null,
     variant: { default: "basic" },
+    img: { default: null },
     title: { default: "Title" },
     subtitle: { default: "SubTitle" },
     description: { default: "Description" },
@@ -121,6 +122,7 @@ export default {
     };
   },
   mounted() {
+    
     this.element = Builder.getInstance().init(
       "WBcard",
       "card" + this._uid
@@ -129,7 +131,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .mdc-card-container {
   max-width: 100%;
 
@@ -156,9 +158,9 @@ export default {
   }
 }
 
-.mdc-card-bgimg {
-  background-image: url("https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg");
-}
+// .mdc-card-bgimg {
+  // background-image: url("https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg");
+// }
 
 //basic
 

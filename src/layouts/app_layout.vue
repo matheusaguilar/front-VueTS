@@ -7,7 +7,7 @@
       <WBbutton></WBbutton>
       <WBbuttonFAB></WBbuttonFAB>
       <WBbuttonIcon></WBbuttonIcon>
-      <!-- <WBcard></WBcard> -->
+      <WBcard img="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg" :action="false"></WBcard>
       <WBcheckbox></WBcheckbox>
       <WBchipContainer>
         <WBchip text="chipsa osak ksakd"></WBchip>
