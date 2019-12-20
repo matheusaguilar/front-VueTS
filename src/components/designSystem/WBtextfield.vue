@@ -75,7 +75,7 @@ import { Builder } from "_PagesSrc/ts/designSystem/Builder";
 
 export default {
   props: {
-    id: null,
+    id: {default: null},
     variant: { default: "filled" },
     label: { default: "Textfield Label" },
     shaped: { default: false },

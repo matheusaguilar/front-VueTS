@@ -1,116 +1,46 @@
 <template>
   <div style="width: 100%">
-    <WBtopAppBar title="Title" variant="standard" ref="topAppBar"></WBtopAppBar>
-    <WBdrawer topappbar="standard" ref="drawer"></WBdrawer>
-    <WBdrawerMainContent topappbar="standard" ref="drawerMainContent">
-      
-      <WBbutton></WBbutton>
-      <WBbuttonFAB></WBbuttonFAB>
-      <WBbuttonIcon></WBbuttonIcon>
-      <WBcard img="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg" :action="false"></WBcard>
-      <WBcheckbox></WBcheckbox>
-      <WBchipContainer>
-        <WBchip text="chipsa osak ksakd"></WBchip>
-        <WBchip text="chipsa hahaha ksakd"></WBchip>
-      </WBchipContainer>
-
-      <WBdataTable>
-        <WBdataTableHead>
-          <WBdataTableColumn text="coluna 1"></WBdataTableColumn>
-          <WBdataTableColumn text="coluna 2"></WBdataTableColumn>
-          <WBdataTableColumn text="coluna 3"></WBdataTableColumn>
-        </WBdataTableHead>
-
-        <WBdataTableBody>
-          <WBdataTableRow>
-            <WBdataTableColumn variant="body" text="coluna 1"></WBdataTableColumn>
-            <WBdataTableColumn variant="body" text="coluna 2"></WBdataTableColumn>
-            <WBdataTableColumn variant="body" text="coluna 3"></WBdataTableColumn>
-          </WBdataTableRow>
-        </WBdataTableBody>
-      </WBdataTable>
-
-      <WBlist>
-        <WBlistItem></WBlistItem>
-        <WBlistItem></WBlistItem>
+    <WBtopAppBar title="Sistema" variant="standard">
+      <WBlist id="WBlist-1">
+        <WBlistItem primaryText="Categorias" secondaryText leftIcon></WBlistItem>
+        <WBlistItem primaryText="Sobre Nós" secondaryText leftIcon></WBlistItem>
+        <WBlistItem primaryText="Contate-nos" secondaryText leftIcon></WBlistItem>
+        <WBlistItem primaryText="Entrar" secondaryText leftIcon="input"></WBlistItem>
       </WBlist>
-
-      <WBmodal ref="modal">
-
-      </WBmodal>
-
-      <WBradioButton></WBradioButton>
-      <WBradioButton></WBradioButton>
-
-      <WBtextfield></WBtextfield>
-
-      <WBselect :items="['op1', 'op2']">
-
-      </WBselect>
-
-    </WBdrawerMainContent>
+    </WBtopAppBar>
+    <WBdrawer topappbar="standard">
+      <WBlist>
+        <WBlistItem primaryText="Categorias" secondaryText leftIcon></WBlistItem>
+        <WBlistItem primaryText="Sobre Nós" secondaryText leftIcon></WBlistItem>
+        <WBlistItem primaryText="Contate-nos" secondaryText leftIcon></WBlistItem>
+      </WBlist>
+    </WBdrawer>
+    <WBdrawerMainContent topappbar="standard">Ola!</WBdrawerMainContent>
   </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator';
-import { Builder } from '_PagesSrc/ts/designSystem/Builder';
 import WBtopAppBar from '_Components/designSystem/WBtopAppBar.vue';
 import WBdrawer from '_Components/designSystem/WBdrawer.vue';
 import WBdrawerMainContent from '_Components/designSystem/WBdrawerMainContent.vue';
-import WBbutton from '_Components/designSystem/WBbutton.vue';
-import WBbuttonFAB from '_Components/designSystem/WBbuttonFAB.vue';
-import WBbuttonIcon from '_Components/designSystem/WBbuttonIcon.vue';
-import WBcard from '_Components/designSystem/WBcard.vue';
-import WBcheckbox from '_Components/designSystem/WBcheckbox.vue';
-import WBchip from '_Components/designSystem/WBchip.vue';
-import WBchipContainer from '_Components/designSystem/WBchipContainer.vue';
-import WBdataTable from '_Components/designSystem/WBdataTable.vue';
-import WBdataTableHead from '_Components/designSystem/WBdataTableHead.vue';
-import WBdataTableBody from '_Components/designSystem/WBdataTableBody.vue';
-import WBdataTableRow from '_Components/designSystem/WBdataTableRow.vue';
-import WBdataTableColumn from '_Components/designSystem/WBdataTableColumn.vue';
 import WBlist from '_Components/designSystem/WBlist.vue';
 import WBlistItem from '_Components/designSystem/WBlistItem.vue';
-import WBmodal from '_Components/designSystem/WBmodal.vue';
-import WBradioButton from '_Components/designSystem/WBradioButton.vue';
-import WBtextfield from '_Components/designSystem/WBtextfield.vue';
-import WBselect from '_Components/designSystem/WBselect.vue';
+import { Builder } from '_PagesSrc/ts/designSystem/Builder';
 
 @Component({
   components: {
     WBtopAppBar,
     WBdrawer,
     WBdrawerMainContent,
-    WBbutton,
-    WBbuttonFAB,
-    WBbuttonIcon,
-    WBcard,
-    WBcheckbox,
-    WBchip,
-    WBchipContainer,
-    WBdataTable,
-    WBdataTableHead,
-    WBdataTableBody,
-    WBdataTableRow,
-    WBdataTableColumn,
     WBlist,
-    WBlistItem,
-    WBmodal,
-    WBradioButton,
-    WBtextfield,
-    WBselect
+    WBlistItem
   }
 })
 export default class MyClass extends Vue {
   mounted() {
-    // window.setTimeout(() => {
-    //   console.log((<any>this.$refs.modal).element.mdc.open());
-    // }, 5000);
-
     this.$nextTick(() => {
-      const builder = Builder.getInstance();
-      builder.afterMounted();
+      Builder.getInstance().afterMounted();
     });
   }
 }
@@ -122,5 +52,31 @@ body {
   display: flex;
   height: 100vh;
   background: #f1f1f1;
+}
+
+.mdc-top-app-bar__section,
+.mdc-top-app-bar__section--align-end {
+  padding: 0px 12px;
+}
+
+#WBlist-1 {
+  display: flex;
+  color: white;
+  padding: 0px 8px;
+  height: 100%;
+
+  li {
+    user-select: none;
+    height: 100%;
+
+    .material-icons {
+      margin-right: 16px;
+      color: white;
+    }
+  }
+
+  @media screen and (max-width: $mobile-bp) {
+    display: none;
+  }
 }
 </style>
