@@ -15,7 +15,9 @@
         <WBlistItem primaryText="Contate-nos" secondaryText leftIcon></WBlistItem>
       </WBlist>
     </WBdrawer>
-    <WBdrawerMainContent topappbar="standard">Ola!</WBdrawerMainContent>
+    <WBdrawerMainContent topappbar="standard">
+      <router-view />
+    </WBdrawerMainContent>
   </div>
 </template>
 
